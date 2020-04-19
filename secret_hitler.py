@@ -8,19 +8,6 @@ import smtplib
 import random
 import time
 
-emaildict = {
-    "bryan" : "player1@gmail.com",
-    "kristen" : "player2@gmail.com",
-    "jason" : "player3@gmail.com",
-    "bryant" : "player4@gmail.com",
-    "sharlene" : "player5a@gmail.com",
-    "josh" : "player6@gmail.com",
-    "haley" : "player7@gmail.com",
-    "aleska" : "player8@gmail.com",
-    "mark" : "player9@gmail.com",
-    "ethan" : "player0@gmail.com"
-}
-
 class SecretHitler:
 
     def __init__(self, emaildict, sendemails=False):
@@ -37,10 +24,40 @@ class SecretHitler:
         self.players = list(emaildict.keys())
         self.emaildict = emaildict
 
+        if len(self.players) < 5 or len(self.players) > 10:
+            print("You don't have a valid number of players.")
+            print("You're entering uncharted territory here.")
+
         self.deck = []
+        self.fascist_score = 0
+        self.liberal_score = 0
 
         self.assignRoles()
         self.initPolicyDeck()
+
+        self.presidential_powers = [
+            [
+                "The president has no special power.",
+                "The president has no special power.",
+                "The president examines the top three cards.",
+                "The president must kill a player.",
+                "The president must kill a player."
+            ], # 5 or 6 players
+            [
+                "The president has no special power.",
+                "The president investigates a player's party membership card.",
+                "The president picks the next presidential candidate.",
+                "The president must kill a player.",
+                "The president must kill a player."  
+            ], # 7 or 8 players
+            [
+                "The president investigates a player's party membership card.",
+                "The president investigates a player's party membership card.",
+                "The president picks the next presidential candidate.",
+                "The president must kill a player.",
+                "The president must kill a player."                 
+            ] # 9 or 10 players
+        ]
 
     def sendemail(self, from_addr, to_addr_list, cc_addr_list,
                 subject, message,
@@ -283,6 +300,52 @@ class SecretHitler:
         subject = "Party Affliation of " + about_player + " for Game #" + str(self.gamenumber)
         self.sendMessage(to_player, subject, msg) 
 
+    def updateGameStatus(self, policy):
+
+        presidential_power = False
+
+        if policy == 'l':
+            self.liberal_score += 1
+        elif policy == 'f':
+            self.fascist_score += 1
+            presidential_power = True
+        elif policy == 'v':
+            pass
+        else:
+            print("Something really bad happened.")
+
+        print("The liberals have", self.liberal_score, "policies.")
+        print("The fascists have", self.fascist_score, "policies.")
+
+        if self.liberal_score == 5:
+            print("The liberals win!")
+            return
+        elif self.fascist_score == 6:
+            print("The fascists win!")
+            return
+
+        if self.liberal_score == 4:
+            print("The liberals will win upon enacting one more liberal policy.")
+        
+        if self.fascist_score == 5:
+            print("The fascists will win upon enacting one more fascist policy.")
+        
+        if self.fascist_score >= 3:
+            print("The fascists will win upon electing Hitler as chancellor.")
+
+        if presidential_power:
+            if len(self.players) == 5 or len(self.players) == 6:
+                i = 0
+            elif len(self.players) == 7 or len(self.players) == 8:
+                i = 1
+            elif len(self.players) == 9 or len(self.players) == 10:
+                i = 2
+            else:
+                print("Warning: You don't have a valid number of players, so I can't decide what the presidential power is.")
+                return
+
+            print(self.presidential_powers[i][self.fascist_score-1])
+
     def passSequence(self):
         president = input('Who is the president?')
         chancellor = input('Who is the chancellor?')
@@ -304,18 +367,31 @@ class SecretHitler:
         else:
             print("A " + self.policydict[played] + " policy was played.")
 
-# %% Example usage
+        self.updateGameStatus(played)
 
+# Example usage
 # %% Start a Round
-#sh = SecretHitler(emaildict, sendemails=False) # To actually send emails, set sendemails=True
+# emaildict = {
+#     "bryan" : "player1@gmail.com",
+#     "kristen" : "player2@gmail.com",
+#     "jason" : "player3@gmail.com",
+#     "bryant" : "player4@gmail.com",
+#     "sharlene" : "player5a@gmail.com",
+#     "josh" : "player6@gmail.com",
+#     "haley" : "player7@gmail.com",
+#     "aleska" : "player8@gmail.com",
+#     "mark" : "player9@gmail.com",
+#     "ethan" : "player0@gmail.com"
+# }
+# sh = SecretHitler(emaildict, sendemails=False) # To actually send emails, set sendemails=True
 
 # %% Complete Entire Passing Sequence for President and Chancellor
-#sh.passSequence()
+# sh.passSequence()
 
 # %% Reveal Someone's Party To Another Player
-#sh.revealParty()
+# sh.revealParty()
 
 # %% Let Someone See The Top Three Cards
-#sh.examineTopThree()
+# sh.examineTopThree()
 
 # %%
