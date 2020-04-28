@@ -10,10 +10,10 @@ import time
 
 class SecretHitler:
 
-    def __init__(self, emaildict, sendemails=False):
+    def __init__(self, emaildict, sender_email, sender_email_password, sendemails=False):
 
-        self.sender_email = "" # enter the email that will be used to send emails
-        self.sender_email_password = "" # enter your password
+        self.sender_email = sender_email
+        self.sender_email_password = sender_email_password
 
         self.sendemails = sendemails # True sends emails, False prints information for testing
         self.gamenumber = random.randint(100, 99999) # Game ID for clarity
@@ -305,12 +305,14 @@ class SecretHitler:
         presidential_power = False
 
         if policy == 'l':
+            print("A " + self.policydict[policy] + " policy was played.")
             self.liberal_score += 1
         elif policy == 'f':
+            print("A " + self.policydict[policy] + " policy was played.")
             self.fascist_score += 1
             presidential_power = True
         elif policy == 'v':
-            pass
+            print("The policies were vetoed.")
         else:
             print("Something really bad happened.")
 
@@ -362,36 +364,11 @@ class SecretHitler:
         self.passTwo(chancellor, option)
         option = int(input("Chancellor's decision (-1 for veto):"))
         self.deck, played = self.chooseFromTwo(option)
-        if played == 'v':
-            print("The policies were vetoed.")
-        else:
-            print("A " + self.policydict[played] + " policy was played.")
 
         self.updateGameStatus(played)
 
-# Example usage
-# %% Start a Round
-# emaildict = {
-#     "bryan" : "player1@gmail.com",
-#     "kristen" : "player2@gmail.com",
-#     "jason" : "player3@gmail.com",
-#     "bryant" : "player4@gmail.com",
-#     "sharlene" : "player5a@gmail.com",
-#     "josh" : "player6@gmail.com",
-#     "haley" : "player7@gmail.com",
-#     "aleska" : "player8@gmail.com",
-#     "mark" : "player9@gmail.com",
-#     "ethan" : "player0@gmail.com"
-# }
-# sh = SecretHitler(emaildict, sendemails=False) # To actually send emails, set sendemails=True
+    def enactTopPolicy(self):
+        policy = self.deck[0]
+        del self.deck[0]
+        self.updateGameStatus(policy)
 
-# %% Complete Entire Passing Sequence for President and Chancellor
-# sh.passSequence()
-
-# %% Reveal Someone's Party To Another Player
-# sh.revealParty()
-
-# %% Let Someone See The Top Three Cards
-# sh.examineTopThree()
-
-# %%
