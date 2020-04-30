@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>587</width>
+    <height>288</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>President</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_president">
+              <item>
+               <property name="text">
+                <string>Bryan</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kristen</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Jason</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Bryant</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Josh</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Monica</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Jackson</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Aleska</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Judith</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Benj</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>Chancellor</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_chancellor">
+              <item>
+               <property name="text">
+                <string>Bryan</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Kristen</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Jason</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Bryant</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Josh</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Monica</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Jackson</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Aleska</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Judith</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Benj</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_pass">
+            <property name="text">
+             <string>Pass Sequence</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_reveal">
+            <property name="text">
+             <string>Reveal Party</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_examine">
+            <property name="text">
+             <string>Examine Top Three</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_enact">
+            <property name="text">
+             <string>Enact Top Policy</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>88</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Welcome to Secret Hitler!</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>587</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionStart_New_Game"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuPlayers">
+    <property name="title">
+     <string>Players</string>
+    </property>
+    <addaction name="actionUpdate_Players_2"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuPlayers"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionStart_New_Game">
+   <property name="text">
+    <string>Start New Game</string>
+   </property>
+  </action>
+  <action name="actionUpdate_Players">
+   <property name="text">
+    <string>Update Players</string>
+   </property>
+  </action>
+  <action name="actionUpdate_Players_2">
+   <property name="text">
+    <string>Update Players</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

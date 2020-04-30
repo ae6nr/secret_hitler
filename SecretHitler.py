@@ -37,25 +37,25 @@ class SecretHitler:
 
         self.presidential_powers = [
             [
-                "The president has no special power.",
-                "The president has no special power.",
-                "The president examines the top three cards.",
-                "The president must kill a player.",
-                "The president must kill a player."
+                "The president has no special power.\n",
+                "The president has no special power.\n",
+                "The president examines the top three cards.\n",
+                "The president must kill a player.\n",
+                "The president must kill a player.\n"
             ], # 5 or 6 players
             [
-                "The president has no special power.",
-                "The president investigates a player's party membership card.",
-                "The president picks the next presidential candidate.",
-                "The president must kill a player.",
-                "The president must kill a player."  
+                "The president has no special power.\n",
+                "The president investigates a player's party membership card.\n",
+                "The president picks the next presidential candidate.\n",
+                "The president must kill a player.\n",
+                "The president must kill a player.\n"  
             ], # 7 or 8 players
             [
-                "The president investigates a player's party membership card.",
-                "The president investigates a player's party membership card.",
-                "The president picks the next presidential candidate.",
-                "The president must kill a player.",
-                "The president must kill a player."                 
+                "The president investigates a player's party membership card.\n",
+                "The president investigates a player's party membership card.\n",
+                "The president picks the next presidential candidate.\n",
+                "The president must kill a player.\n",
+                "The president must kill a player.\n"                 
             ] # 9 or 10 players
         ]
 
@@ -92,15 +92,19 @@ class SecretHitler:
                 self.sender_email,
                 self.sender_email_password
             )
+            text = "Email sent!"
         else:
-            print(player + ": " + subject + "\n\n" + msg)
+            text = player + ": " + subject + "\n\n" + msg
+            # print(text)
+        
+        return text
 
     def sendRole(self, player, msg):
         """
         Send an email with the player's role
         """
         subject = "Secret Role for Game #" + str(self.gamenumber)
-        self.sendMessage(player, subject, msg)
+        return self.sendMessage(player, subject, msg)
 
     def assignRoles(self):
         """
@@ -168,9 +172,9 @@ class SecretHitler:
             msg += "(If applicable, say -1 to veto.)\n"
 
         subject = "Policy Cards for Game #" + str(self.gamenumber) + " " + str(random.randint(0, 10000000))
-        self.sendMessage(player, subject, msg)
+        text = self.sendMessage(player, subject, msg)
 
-        return subject
+        return text
 
     def initPolicyDeck(self):
         """
@@ -194,15 +198,14 @@ class SecretHitler:
         second = int(0b0100) + self.randomIntObfuscate()
         third = int(0b0010) + self.randomIntObfuscate()
         codes = [first, second, third]
-        return self.sendPolicyCards(player, self.deck[0:3], codes)
+        msg = self.sendPolicyCards(player, self.deck[0:3], codes)
+        return msg
 
     def passTwo(self, player, option):
         """
         Chancellor receives two cards
         Also generates option IDs
         """
-
-        subject = ''
 
         if option & int(0b1000):
             i = 0
@@ -211,8 +214,8 @@ class SecretHitler:
         elif option & int(0b0010):
             i = 2
         else:
-            print("Something went horribly wrong in passing.")
-            return self.deck, subject
+            msg = "Something went horribly wrong in passing."
+            return self.deck, msg
 
         self.deck.append(self.deck[i])
         del self.deck[i]
@@ -221,9 +224,9 @@ class SecretHitler:
         second = int(0b0100) + self.randomIntObfuscate()
         codes = (first, second)
 
-        subject = self.sendPolicyCards(player, self.deck[0:2], codes)
+        msg = self.sendPolicyCards(player, self.deck[0:2], codes)
 
-        return self.deck, subject
+        return self.deck, msg
 
     def chooseFromTwo(self, option):
         """
@@ -243,7 +246,7 @@ class SecretHitler:
         elif option & int(0b0100):
             i = 1
         else:
-            print("Something went horribly wrong in passing.")
+            # print("Something went horribly wrong in passing.")
             return self.deck, played
 
         self.deck.append(self.deck[i])
@@ -254,18 +257,20 @@ class SecretHitler:
 
         return self.deck, played
 
-    def examineTopThree(self):
+    def examineTopThree(self, player=''):
         """
         Allows a player to look at the top three cards of the deck
         """
 
-        player = input('TO WHOM shall I send the information?')
+        if player == '':
+            player = input('TO WHOM shall I send the information?')
 
         try:
             self.emaildict[player]
         except:
-            print("You misspelled someone's name.")
-            return
+            msg = "You misspelled someone's name."
+            # print(msg)
+            return msg
 
         msg = "Top three cards, starting with the topmost card:\n"
 
@@ -273,67 +278,73 @@ class SecretHitler:
             msg += str(i+1) + ". " + self.policydict[self.deck[i]] + "\n"
 
         subject = "Top Three Cards for Game #" + str(self.gamenumber)
-        self.sendMessage(player, subject, msg)
+        return self.sendMessage(player, subject, msg)
 
-    def revealParty(self):
+    def revealParty(self, to_player='', about_player=''):
         """
         Reveals about_player's party to to_player
         """
 
-        to_player = input('TO WHOM shall I send the information?')
-        about_player = input('Whose party shall be revealed?')
+        if to_player == '':
+            to_player = input('TO WHOM shall I send the information?')
+        
+        if about_player == '':
+            about_player = input('Whose party shall be revealed?')
 
         try:
             self.emaildict[to_player]
             self.emaildict[about_player]
         except:
-            print("You misspelled someone's name.")
-            return
+            msg = "You misspelled someone's name."
+            # print(msg)
+            return msg
         
         party = self.roles[self.players.index(about_player)]
 
         if party == 'h' or party == 'f':
-            msg = about_player + " is a member of the Fascist party. " + about_player + " might be the Secret, Socially-Distanced Hitler..."
+            msg = about_player + " is a member of the Fascist party.\n" + about_player + " might be the Secret, Socially-Distanced Hitler..."
         else:
             msg = about_player + " is a socially-distanced liberal."
 
         subject = "Party Affliation of " + about_player + " for Game #" + str(self.gamenumber)
-        self.sendMessage(to_player, subject, msg) 
+        return self.sendMessage(to_player, subject, msg) 
 
     def updateGameStatus(self, policy):
 
         presidential_power = False
 
+        msg = ""
+
         if policy == 'l':
-            print("A " + self.policydict[policy] + " policy was played.")
+            msg += "A " + self.policydict[policy] + " policy was played.\n"
             self.liberal_score += 1
         elif policy == 'f':
-            print("A " + self.policydict[policy] + " policy was played.")
+            msg += "A " + self.policydict[policy] + " policy was played.\n"
             self.fascist_score += 1
             presidential_power = True
         elif policy == 'v':
-            print("The policies were vetoed.")
+            msg += "The policies were vetoed.\n"
         else:
-            print("Something really bad happened.")
+            msg += "Something really bad happened.\n"
 
-        print("The liberals have", self.liberal_score, "policies.")
-        print("The fascists have", self.fascist_score, "policies.")
+        msg += "The liberals have " + str(self.liberal_score) + " policies.\n"
+        msg += "The fascists have " + str(self.fascist_score) + " policies.\n"
 
         if self.liberal_score == 5:
-            print("The liberals win!")
-            return
+            msg += "The liberals win!\n"
+            return msg
         elif self.fascist_score == 6:
-            print("The fascists win!")
-            return
+            msg += "The fascists win!\n"
+            return msg
 
         if self.liberal_score == 4:
-            print("The liberals will win upon enacting one more liberal policy.")
+            msg += "The liberals will win upon enacting one more liberal policy.\n"
         
         if self.fascist_score == 5:
-            print("The fascists will win upon enacting one more fascist policy.")
+            msg += "The fascists will win upon enacting one more fascist policy.\n"
         
         if self.fascist_score >= 3:
-            print("The fascists will win upon electing Hitler as chancellor.")
+            msg += "The fascists will win upon electing Hitler as chancellor.\n"
 
         if presidential_power:
             if len(self.players) == 5 or len(self.players) == 6:
@@ -343,12 +354,15 @@ class SecretHitler:
             elif len(self.players) == 9 or len(self.players) == 10:
                 i = 2
             else:
-                print("Warning: You don't have a valid number of players, so I can't decide what the presidential power is.")
+                msg += "Warning: You don't have a valid number of players, so I can't decide what the presidential power is.\n"
                 return
 
-            print(self.presidential_powers[i][self.fascist_score-1])
+            msg += self.presidential_powers[i][self.fascist_score-1]
+        
+        return msg
 
     def passSequence(self):
+
         president = input('Who is the president?')
         chancellor = input('Who is the chancellor?')
 
@@ -356,19 +370,23 @@ class SecretHitler:
             self.emaildict[president]
             self.emaildict[chancellor]
         except:
-            print("You misspelled someone's name.")
-            return
+            msg = "You misspelled someone's name."
+            # print(msg)
+            return msg
 
-        self.drawThree(president)
+        msg = self.drawThree(president)
+        print(msg)
         option = int(input("President's decision:"))
-        self.passTwo(chancellor, option)
+        deck, msg = self.passTwo(chancellor, option)
+        print(msg)
         option = int(input("Chancellor's decision (-1 for veto):"))
         self.deck, played = self.chooseFromTwo(option)
 
-        self.updateGameStatus(played)
+        msg = self.updateGameStatus(played)
+        return msg
 
     def enactTopPolicy(self):
         policy = self.deck[0]
         del self.deck[0]
-        self.updateGameStatus(policy)
+        return self.updateGameStatus(policy)
 

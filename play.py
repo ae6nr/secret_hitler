@@ -23,15 +23,19 @@ emaildict = {
 sh = SecretHitler(emaildict, sender_email, sender_email_password, sendemails=False) # To actually send emails, set sendemails=True
 
 # %% Complete Entire Passing Sequence for President and Chancellor
-sh.passSequence()
+msg = sh.passSequence()
+print(msg)
 
 # %% Reveal Someone's Party To Another Player
-sh.revealParty()
+msg = sh.revealParty()
+print(msg)
 
 # %% Let Someone See The Top Three Cards
-sh.examineTopThree()
+msg = sh.examineTopThree()
+print(msg)
 
 # %% Enact Top Policy
-sh.enactTopPolicy()
+msg = sh.enactTopPolicy()
+print(msg)
 
 # %%
