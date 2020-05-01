@@ -37,8 +37,8 @@ class MainWindow:
             "Judith" : "player0@gmail.com"
         }
 
-        self.sh = 0
         self.startNewGame()
+        self.updatePresInfo()
 
         # Connect signals to slots
         self.ui.pushButton_pass.clicked.connect(self.pass_sequence)
@@ -47,9 +47,16 @@ class MainWindow:
         self.ui.pushButton_enact.clicked.connect(self.enact)
         self.ui.actionStart_New_Game.triggered.connect(self.startNewGame)
         #self.ui.actionUpdate_Players.triggered.connect(self.updatePlayers)
+        self.ui.comboBox_president.currentIndexChanged.connect(self.updatePresInfo)
 
     def show(self):
         self.main_win.show()
+
+    def updatePresInfo(self):
+        msg = self.ui.comboBox_president.currentText() + " is the president."
+        self.ui.statusbar.showMessage(msg)
+        self.ui.label_pres_info_1.setText(msg)
+        self.ui.label_pres_info_2.setText(msg)
 
     def startNewGame(self, sendemails=False):
         self.sh = SecretHitler(self.emaildict, self.sender_email, self.sender_email_password, sendemails=sendemails) # To actually send emails, set sendemails=True
@@ -80,7 +87,7 @@ class MainWindow:
         
     def reveal_party(self):
         to_player = self.ui.comboBox_president.currentText()
-        about_player = self.ui.comboBox_chancellor.currentText()
+        about_player = self.ui.comboBox_about_player.currentText()
         msg = self.sh.revealParty(to_player, about_player)
         self.ui.label_3.setText(msg)
 
