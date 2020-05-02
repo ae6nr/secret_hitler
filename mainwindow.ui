@@ -388,15 +388,10 @@
     </property>
     <addaction name="actionStart_New_Game"/>
     <addaction name="separator"/>
-   </widget>
-   <widget class="QMenu" name="menuPlayers">
-    <property name="title">
-     <string>Players</string>
-    </property>
-    <addaction name="actionUpdate_Players_2"/>
+    <addaction name="actionPlayer_Settings"/>
+    <addaction name="actionAdd_Sender_Email"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuPlayers"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionStart_New_Game">
@@ -409,9 +404,20 @@
     <string>Update Players</string>
    </property>
   </action>
-  <action name="actionUpdate_Players_2">
+  <action name="actionPlayer_Settings">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Update Players</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionAdd_Sender_Email">
+   <property name="text">
+    <string>Add Sender Email</string>
    </property>
   </action>
  </widget>
