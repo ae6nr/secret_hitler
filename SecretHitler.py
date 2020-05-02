@@ -10,7 +10,7 @@ import time
 
 class SecretHitler:
 
-    def __init__(self, emaildict, sender_email, sender_email_password, sendemails=False):
+    def __init__(self, emaildict, sender_email, sender_email_password, sendemails=False, invite_link=""):
 
         self.sender_email = sender_email
         self.sender_email_password = sender_email_password
@@ -32,7 +32,7 @@ class SecretHitler:
         self.fascist_score = 0
         self.liberal_score = 0
 
-        self.assignRoles()
+        self.assignRoles(invite_link=invite_link)
         self.initPolicyDeck()
 
         self.presidential_powers = [
@@ -106,7 +106,7 @@ class SecretHitler:
         subject = "Secret Role for Game #" + str(self.gamenumber)
         return self.sendMessage(player, subject, msg)
 
-    def assignRoles(self):
+    def assignRoles(self, invite_link=""):
         """
         Assign players' roles, and send them emails
         """
@@ -123,7 +123,9 @@ class SecretHitler:
 
             msg = "\n\n" # must start with this, or else the first line will be lost
             msg += "Welcome to Secret, Socially-Distanced Hitler.\n\n"
-            msg += "\n\n" # If you would like to include a link to your Zoom meeting, insert that here.
+            if invite_link != "":
+                msg += invite_link
+                msg += "\n\n"
             
             if self.roles[i] == 'h':
                 msg += "You are the Secret, Socially-Distanced Hitler."

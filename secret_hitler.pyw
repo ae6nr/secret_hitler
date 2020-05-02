@@ -16,7 +16,7 @@ from Ui_EmailWin import Ui_Dialog as Ui_Dialog_EmailWin
 from SecretHitler import SecretHitler
 
 class EmailWindow:
-    def __init__(self, main, email, password):
+    def __init__(self, main, email, password, invite_link):
         self.main = main
         self.dlg = QDialog()
         self.ui = Ui_Dialog_EmailWin()
@@ -24,6 +24,7 @@ class EmailWindow:
 
         self.ui.lineEdit_email.setText(email)
         self.ui.lineEdit_password.setText(password)
+        self.ui.lineEdit_invite_link.setText(invite_link)
 
         self.ui.pushButton_save.clicked.connect(self.save)
         self.ui.pushButton_cancel.clicked.connect(self.cancel)
@@ -41,6 +42,7 @@ class EmailWindow:
     def save(self):
         self.main.sender_email = self.ui.lineEdit_email.text()
         self.main.sender_email_password = self.ui.lineEdit_password.text()
+        self.main.invite_link = self.ui.lineEdit_invite_link.text()
         self.updateEmailPref()
         self.dlg.close()
 
@@ -81,7 +83,17 @@ class PlayerWindow:
 
         self.main.updatedDictionary = newDict
 
-        self.dlg.close()
+        for i in range(0,10):
+            self.ui.tableWidget.item(i, 0).setText("")
+            self.ui.tableWidget.item(i, 1).setText("")
+
+        i = 0
+        for name in self.main.updatedDictionary:
+            self.ui.tableWidget.item(i, 0).setText(name)
+            self.ui.tableWidget.item(i, 1).setText(self.main.updatedDictionary[name])
+            i += 1
+
+        #self.dlg.close()
 
 class MainWindow:
     def __init__(self):
@@ -107,6 +119,7 @@ class MainWindow:
         self.updatedDictionary = self.emaildict
 
         self.send_emails = False
+        self.invite_link = ""
 
         self.startNewGame()
         self.updatePresInfo()
@@ -125,7 +138,7 @@ class MainWindow:
         self.main_win.show()
 
     def emailSettings(self):
-        pop = EmailWindow(self, self.sender_email, self.sender_email_password)
+        pop = EmailWindow(self, self.sender_email, self.sender_email_password, self.invite_link)
         pop.dlg.exec_()
 
     def updatePlayers(self):
@@ -170,7 +183,7 @@ class MainWindow:
             self.ui.comboBox_chancellor.setItemText(j, name)
             self.ui.comboBox_about_player.setItemText(j, name)
 
-        self.sh = SecretHitler(self.emaildict, self.sender_email, self.sender_email_password, sendemails=self.send_emails) # To actually send emails, set sendemails=True
+        self.sh = SecretHitler(self.emaildict, self.sender_email, self.sender_email_password, sendemails=self.send_emails, invite_link=self.invite_link) # To actually send emails, set sendemails=True
         msg = "Welcome to a new round of Secret Hitler!"
         self.ui.label_3.setText(msg)
 
