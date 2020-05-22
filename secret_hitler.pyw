@@ -8,6 +8,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QMainWindow, QInputDialog, QDialog, QMessageBox
+from PyQt5.QtCore import Qt
 
 import PyQt5
 from Ui_MainWin import Ui_MainWindow
@@ -95,12 +96,14 @@ class PlayerWindow:
 
         #self.dlg.close()
 
+
 class MainWindow:
     def __init__(self):
         
         self.main_win = QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.main_win)
+        self.main_win.setWindowFlags(Qt.FramelessWindowHint)
 
         self.sender_email = "" # enter the email that will be used to send emails
         self.sender_email_password = "" # enter your password
@@ -133,6 +136,8 @@ class MainWindow:
         self.ui.actionPlayer_Settings.triggered.connect(self.updatePlayers)
         self.ui.comboBox_president.currentIndexChanged.connect(self.updatePresInfo)
         self.ui.actionAdd_Sender_Email.triggered.connect(self.emailSettings)
+
+        self.ui.pushButton_close.clicked.connect(self.startNewGame)
 
     def show(self):
         self.main_win.show()

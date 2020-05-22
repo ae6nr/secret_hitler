@@ -6,16 +6,90 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>418</height>
+    <width>918</width>
+    <height>602</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Secret Hitler</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="sh.qrc">
+    <normaloff>:/sh/Secret-Hitler.png</normaloff>:/sh/Secret-Hitler.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/*background-color: rgb(0, 0, 0);*/
+background-color: rgb(230, 99, 66);
+color: rgb(248, 227, 192);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_6">
     <item row="0" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_min">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="sh.qrc">
+          <normaloff>:/controls/min.bmp</normaloff>:/controls/min.bmp</iconset>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_max">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="sh.qrc">
+          <normaloff>:/controls/max.bmp</normaloff>:/controls/max.bmp</iconset>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_close">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="sh.qrc">
+          <normaloff>:/controls/close.bmp</normaloff>:/controls/close.bmp</iconset>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <spacer name="verticalSpacer">
@@ -34,6 +108,11 @@
        <layout class="QGridLayout" name="gridLayout_5">
         <item row="0" column="1">
          <widget class="QLabel" name="label_3">
+          <property name="font">
+           <font>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Welcome to Secret Hitler!</string>
           </property>
@@ -84,12 +163,248 @@
        </spacer>
       </item>
       <item>
-       <widget class="QTabWidget" name="tabWidget">
-        <property name="currentIndex">
-         <number>0</number>
+       <widget class="QToolBox" name="toolBox">
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>248</red>
+              <green>227</green>
+              <blue>192</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>230</red>
+              <green>99</green>
+              <blue>66</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>248</red>
+              <green>227</green>
+              <blue>192</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>248</red>
+              <green>227</green>
+              <blue>192</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Base">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>230</red>
+              <green>99</green>
+              <blue>66</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Window">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>230</red>
+              <green>99</green>
+              <blue>66</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="HighlightedText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="NoBrush">
+             <color alpha="128">
+              <red>0</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>248</red>
+              <green>227</green>
+              <blue>192</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>230</red>
+              <green>99</green>
+              <blue>66</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>248</red>
+              <green>227</green>
+              <blue>192</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>248</red>
+              <green>227</green>
+              <blue>192</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Base">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>230</red>
+              <green>99</green>
+              <blue>66</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Window">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>230</red>
+              <green>99</green>
+              <blue>66</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="HighlightedText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="NoBrush">
+             <color alpha="128">
+              <red>248</red>
+              <green>227</green>
+              <blue>192</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>248</red>
+              <green>227</green>
+              <blue>192</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>230</red>
+              <green>99</green>
+              <blue>66</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>248</red>
+              <green>227</green>
+              <blue>192</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>248</red>
+              <green>227</green>
+              <blue>192</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Base">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>230</red>
+              <green>99</green>
+              <blue>66</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Window">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>230</red>
+              <green>99</green>
+              <blue>66</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="HighlightedText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="NoBrush">
+             <color alpha="128">
+              <red>0</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
         </property>
-        <widget class="QWidget" name="tab">
-         <attribute name="title">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(248, 227, 192);
+background-color: rgb(230, 99, 66);
+selected-color: rgb(248, 227, 192);
+selection-color: rgb(255, 0, 0);
+border-color: rgb(0, 0, 0);</string>
+        </property>
+        <widget class="QWidget" name="toolBoxPage1" native="true">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <attribute name="label">
           <string>Pass Policies</string>
          </attribute>
          <layout class="QGridLayout" name="gridLayout">
@@ -106,6 +421,12 @@
               </item>
               <item>
                <widget class="QComboBox" name="comboBox_president">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(248, 227, 192);
+background-color: rgb(230, 99, 66);
+selection-color: rgb(230, 99, 66);
+selection-background-color: rgb(248, 227, 192);</string>
+                </property>
                 <item>
                  <property name="text">
                   <string>Bryan</string>
@@ -171,6 +492,12 @@
               </item>
               <item>
                <widget class="QComboBox" name="comboBox_chancellor">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(248, 227, 192);
+background-color: rgb(230, 99, 66);
+selection-color: rgb(230, 99, 66);
+selection-background-color: rgb(248, 227, 192);</string>
+                </property>
                 <item>
                  <property name="text">
                   <string>Bryan</string>
@@ -236,8 +563,8 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="tab_2">
-         <attribute name="title">
+        <widget class="QWidget" name="toolBoxPage2" native="true">
+         <attribute name="label">
           <string>Reveal Party</string>
          </attribute>
          <layout class="QGridLayout" name="gridLayout_3">
@@ -262,6 +589,12 @@
             </item>
             <item>
              <widget class="QComboBox" name="comboBox_about_player">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(248, 227, 192);
+background-color: rgb(230, 99, 66);
+selection-color: rgb(230, 99, 66);
+selection-background-color: rgb(248, 227, 192);</string>
+              </property>
               <item>
                <property name="text">
                 <string>Bryan</string>
@@ -325,9 +658,9 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="tab_3">
-         <attribute name="title">
-          <string>Examine Top Cards</string>
+        <widget class="QWidget" name="toolBoxPage3" native="true">
+         <attribute name="label">
+          <string>Examine Top Three</string>
          </attribute>
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="0" column="0">
@@ -353,8 +686,8 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="tab_4">
-         <attribute name="title">
+        <widget class="QWidget" name="toolBoxPage4" native="true">
+         <attribute name="label">
           <string>Enact Top Policy</string>
          </attribute>
          <layout class="QGridLayout" name="gridLayout_4">
@@ -378,11 +711,20 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>500</width>
+     <width>918</width>
      <height>26</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(230, 99, 66);
+background-color: rgb(0, 0, 0);
+selection-color: rgb(0, 0, 0);
+selection-background-color: rgb(230, 99, 66)</string>
+   </property>
    <widget class="QMenu" name="menuFile">
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="title">
      <string>File</string>
     </property>
@@ -393,15 +735,25 @@
    </widget>
    <addaction name="menuFile"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="styleSheet">
+    <string notr="true">background: rgb(0,0,0); color: rgb(230, 99, 60)</string>
+   </property>
+  </widget>
   <action name="actionStart_New_Game">
    <property name="text">
     <string>Start New Game</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
   <action name="actionUpdate_Players">
    <property name="text">
     <string>Update Players</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+U</string>
    </property>
   </action>
   <action name="actionPlayer_Settings">
@@ -419,8 +771,13 @@
    <property name="text">
     <string>Add Sender Email</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="sh.qrc"/>
+ </resources>
  <connections/>
 </ui>

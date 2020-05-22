@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="sh">
+    <file>Secret-Hitler.png</file>
+  </qresource>
+  <qresource prefix="controls">
+    <file>close.bmp</file>
+    <file>max.bmp</file>
+    <file>min.bmp</file>
+    <file>restore.bmp</file>
+  </qresource>
+</RCC>
