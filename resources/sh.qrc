@@ -1,0 +1,22 @@
+<RCC>
+  <qresource prefix="sh">
+    <file>Secret-Hitler.png</file>
+  </qresource>
+  <qresource prefix="sh">
+    <file>email.bmp</file>
+    <file>hitler.bmp</file>
+    <file>players.bmp</file>
+  </qresource>
+  <qresource prefix="window_controls">
+    <file>close.bmp</file>
+    <file>max.bmp</file>
+    <file>min.bmp</file>
+    <file>restore.bmp</file>
+  </qresource>
+  <qresource prefix="actions">
+    <file>enact_top_policy.bmp</file>
+    <file>pass_policies.bmp</file>
+    <file>reveal_player.bmp</file>
+    <file>reveal_top_three.bmp</file>
+  </qresource>
+</RCC>

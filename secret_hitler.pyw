@@ -132,12 +132,16 @@ class MainWindow:
         self.ui.pushButton_reveal.clicked.connect(self.reveal_party)
         self.ui.pushButton_examine.clicked.connect(self.examine)
         self.ui.pushButton_enact.clicked.connect(self.enact)
-        self.ui.actionStart_New_Game.triggered.connect(self.startNewGame)
-        self.ui.actionPlayer_Settings.triggered.connect(self.updatePlayers)
-        self.ui.comboBox_president.currentIndexChanged.connect(self.updatePresInfo)
-        self.ui.actionAdd_Sender_Email.triggered.connect(self.emailSettings)
+        self.ui.pushButton_email.clicked.connect(self.emailSettings)
+        self.ui.pushButton_new_game.clicked.connect(self.startNewGame)
+        self.ui.pushButton_players.clicked.connect(self.updatePlayers)
 
-        self.ui.pushButton_close.clicked.connect(self.startNewGame)
+        #self.ui.actionStart_New_Game.triggered.connect(self.startNewGame)
+        #self.ui.actionPlayer_Settings.triggered.connect(self.updatePlayers)
+        self.ui.comboBox_president.currentIndexChanged.connect(self.updatePresInfo)
+        #self.ui.actionAdd_Sender_Email.triggered.connect(self.emailSettings)
+
+        self.ui.pushButton_close.clicked.connect(self.closeWindow)
 
     def show(self):
         self.main_win.show()
@@ -145,6 +149,9 @@ class MainWindow:
     def emailSettings(self):
         pop = EmailWindow(self, self.sender_email, self.sender_email_password, self.invite_link)
         pop.dlg.exec_()
+
+    def closeWindow(self):
+        sys.exit()
 
     def updatePlayers(self):
         pop = PlayerWindow(self, self.updatedDictionary)
