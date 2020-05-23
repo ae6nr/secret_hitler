@@ -21,11 +21,35 @@
    <string notr="true">background-color: rgb(230, 99, 66);</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Save Players</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Players must have names and emails.
+ They will be removed otherwise.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
    <item row="1" column="0">
     <widget class="QTableWidget" name="tableWidget">
      <property name="styleSheet">
       <string notr="true">background-color: rgb(230, 99, 66);
-</string>
+alternate-background-color: rgb(0, 0, 0);</string>
      </property>
      <row>
       <property name="text">
@@ -192,27 +216,6 @@
        <string/>
       </property>
      </item>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>Save Players</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string>Players must have names and emails.
- They will be removed otherwise.</string>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
     </widget>
    </item>
   </layout>

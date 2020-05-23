@@ -64,6 +64,31 @@ class PlayerWindow:
         self.ui = Ui_Dialog_PlayerWin()
         self.ui.setupUi(self.dlg)
 
+        self.ui.tableWidget.setStyleSheet('''
+        QTableWidget{
+            color: #FFFFFF;
+            background-color: #000000;
+        }
+        ''')
+
+        self.ui.tableWidget.horizontalHeader().setStyleSheet('''
+        QHeaderView{
+            color: #FFFFFF;
+            background-color: #000000;
+        }
+        
+        QHeaderView::section{
+            color: #FFFFFF;
+            background-color: #000000;
+        }
+        ''')
+        self.ui.tableWidget.verticalHeader().setStyleSheet('''
+        QHeaderView::section{
+            color: #FFFFFF;
+            background-color: #000000;
+        }
+        ''')
+
         i = 0
         for name in current_emails:
             self.ui.tableWidget.item(i, 0).setText(name)

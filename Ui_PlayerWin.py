@@ -20,9 +20,18 @@ class Ui_Dialog(object):
         Dialog.setStyleSheet("background-color: rgb(230, 99, 66);")
         self.gridLayout = QtWidgets.QGridLayout(Dialog)
         self.gridLayout.setObjectName("gridLayout")
+        self.pushButton = QtWidgets.QPushButton(Dialog)
+        self.pushButton.setObjectName("pushButton")
+        self.gridLayout.addWidget(self.pushButton, 2, 0, 1, 1)
+        self.label = QtWidgets.QLabel(Dialog)
+        self.label.setStyleSheet("")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setWordWrap(True)
+        self.label.setObjectName("label")
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
         self.tableWidget = QtWidgets.QTableWidget(Dialog)
         self.tableWidget.setStyleSheet("background-color: rgb(230, 99, 66);\n"
-"")
+"alternate-background-color: rgb(0, 0, 0);")
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setRowCount(10)
@@ -94,14 +103,6 @@ class Ui_Dialog(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setItem(9, 1, item)
         self.gridLayout.addWidget(self.tableWidget, 1, 0, 1, 1)
-        self.pushButton = QtWidgets.QPushButton(Dialog)
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout.addWidget(self.pushButton, 2, 0, 1, 1)
-        self.label = QtWidgets.QLabel(Dialog)
-        self.label.setStyleSheet("")
-        self.label.setWordWrap(True)
-        self.label.setObjectName("label")
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -109,6 +110,9 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Player Settings"))
+        self.pushButton.setText(_translate("Dialog", "Save Players"))
+        self.label.setText(_translate("Dialog", "Players must have names and emails.\n"
+" They will be removed otherwise."))
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("Dialog", "1"))
         item = self.tableWidget.verticalHeaderItem(1)
@@ -136,7 +140,4 @@ class Ui_Dialog(object):
         __sortingEnabled = self.tableWidget.isSortingEnabled()
         self.tableWidget.setSortingEnabled(False)
         self.tableWidget.setSortingEnabled(__sortingEnabled)
-        self.pushButton.setText(_translate("Dialog", "Save Players"))
-        self.label.setText(_translate("Dialog", "Players must have names and emails.\n"
-" They will be removed otherwise."))
 import sh_rc
