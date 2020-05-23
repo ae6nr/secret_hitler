@@ -172,7 +172,10 @@ class MainWindow:
         self.ui.comboBox_president.currentIndexChanged.connect(self.updatePresInfo)
         #self.ui.actionAdd_Sender_Email.triggered.connect(self.emailSettings)
 
+        self.isMaxd = False
         self.ui.pushButton_close.clicked.connect(self.closeWindow)
+        self.ui.pushButton_min.clicked.connect(self.minimize)
+        self.ui.pushButton_max.clicked.connect(self.maximize)
 
         self.ui.frame.mousePressEvent = self.mousePressEvent
         self.ui.frame.mouseMoveEvent = self.mouseMoveEvent
@@ -208,6 +211,17 @@ class MainWindow:
 
     def closeWindow(self):
         sys.exit()
+
+    def minimize(self):
+        self.main_win.showMinimized()
+
+    def maximize(self):
+        if not self.isMaxd:
+            self.main_win.showMaximized()
+            self.isMaxd = True
+        else:
+            self.main_win.showNormal()
+            self.isMaxd = False
 
     def updatePlayers(self):
         pop = PlayerWindow(self, self.updatedDictionary)
