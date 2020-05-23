@@ -25,6 +25,21 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_7">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <item row="0" column="0" colspan="2">
      <widget class="QFrame" name="frame">
       <property name="styleSheet">
@@ -121,8 +136,14 @@
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QPushButton" name="pushButton_new_game">
-        <property name="whatsThis">
+        <property name="toolTip">
          <string>New Game</string>
+        </property>
+        <property name="statusTip">
+         <string>New Game</string>
+        </property>
+        <property name="whatsThis">
+         <string/>
         </property>
         <property name="text">
          <string/>
@@ -147,8 +168,14 @@
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_email">
-        <property name="whatsThis">
+        <property name="toolTip">
          <string>Email Settings</string>
+        </property>
+        <property name="statusTip">
+         <string>Email Settings</string>
+        </property>
+        <property name="whatsThis">
+         <string/>
         </property>
         <property name="text">
          <string/>
@@ -173,8 +200,14 @@
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_players">
-        <property name="whatsThis">
+        <property name="toolTip">
          <string>Players</string>
+        </property>
+        <property name="statusTip">
+         <string>Players</string>
+        </property>
+        <property name="whatsThis">
+         <string/>
         </property>
         <property name="text">
          <string/>
@@ -274,8 +307,14 @@
      <layout class="QHBoxLayout" name="horizontalLayout_5">
       <item>
        <widget class="QPushButton" name="pushButton_pass_policies">
-        <property name="whatsThis">
+        <property name="toolTip">
          <string>Pass Policies</string>
+        </property>
+        <property name="statusTip">
+         <string>Pass Policies</string>
+        </property>
+        <property name="whatsThis">
+         <string/>
         </property>
         <property name="text">
          <string/>
@@ -300,8 +339,14 @@
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_reveal_player">
-        <property name="whatsThis">
+        <property name="toolTip">
          <string>Reveal Party Affiliation</string>
+        </property>
+        <property name="statusTip">
+         <string>Reveal Party Affiliation</string>
+        </property>
+        <property name="whatsThis">
+         <string/>
         </property>
         <property name="text">
          <string/>
@@ -326,8 +371,14 @@
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_examine_top">
-        <property name="whatsThis">
+        <property name="toolTip">
          <string>President Examines Top Three</string>
+        </property>
+        <property name="statusTip">
+         <string>President Examines Top Three</string>
+        </property>
+        <property name="whatsThis">
+         <string/>
         </property>
         <property name="text">
          <string/>
@@ -352,8 +403,14 @@
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_play_top">
-        <property name="whatsThis">
+        <property name="toolTip">
          <string>Play Top Policy</string>
+        </property>
+        <property name="statusTip">
+         <string>Play Top Policy</string>
+        </property>
+        <property name="whatsThis">
+         <string/>
         </property>
         <property name="text">
          <string/>
@@ -761,6 +818,10 @@ selection-background-color: rgb(248, 227, 192);</string>
             </item>
             <item>
              <widget class="QPushButton" name="pushButton_pass">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);</string>
+              </property>
               <property name="text">
                <string>Pass Policies</string>
               </property>
@@ -855,6 +916,10 @@ selection-background-color: rgb(248, 227, 192);</string>
           </item>
           <item row="2" column="0">
            <widget class="QPushButton" name="pushButton_reveal">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);</string>
+            </property>
             <property name="text">
              <string>Reveal Party</string>
             </property>
@@ -878,6 +943,10 @@ selection-background-color: rgb(248, 227, 192);</string>
             </item>
             <item>
              <widget class="QPushButton" name="pushButton_examine">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);</string>
+              </property>
               <property name="text">
                <string>Examine Top Three</string>
               </property>
@@ -891,6 +960,10 @@ selection-background-color: rgb(248, 227, 192);</string>
          <layout class="QGridLayout" name="gridLayout_6">
           <item row="0" column="0">
            <widget class="QPushButton" name="pushButton_enact">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);</string>
+            </property>
             <property name="text">
              <string>Enact Top Policy</string>
             </property>

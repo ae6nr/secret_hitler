@@ -11,11 +11,22 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Player Settings</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources/sh.qrc">
+    <normaloff>:/sh/Secret-Hitler.png</normaloff>:/sh/Secret-Hitler.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(230, 99, 66);</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">
     <widget class="QTableWidget" name="tableWidget">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(230, 99, 66);
+</string>
+     </property>
      <row>
       <property name="text">
        <string>1</string>
@@ -192,6 +203,9 @@
    </item>
    <item row="0" column="0">
     <widget class="QLabel" name="label">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="text">
       <string>Players must have names and emails.
  They will be removed otherwise.</string>
@@ -203,6 +217,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources/sh.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -131,10 +131,16 @@ class MainWindow:
         self.ui.pushButton_pass.clicked.connect(self.pass_sequence)
         self.ui.pushButton_reveal.clicked.connect(self.reveal_party)
         self.ui.pushButton_examine.clicked.connect(self.examine)
+
         self.ui.pushButton_enact.clicked.connect(self.enact)
         self.ui.pushButton_email.clicked.connect(self.emailSettings)
         self.ui.pushButton_new_game.clicked.connect(self.startNewGame)
         self.ui.pushButton_players.clicked.connect(self.updatePlayers)
+
+        self.ui.pushButton_pass_policies.clicked.connect(self.changeTabPassPolicies)
+        self.ui.pushButton_reveal_player.clicked.connect(self.changeTabRevealAffliation)
+        self.ui.pushButton_examine_top.clicked.connect(self.changeTabExamineTop)
+        self.ui.pushButton_play_top.clicked.connect(self.enactTopPolicy)
 
         #self.ui.actionStart_New_Game.triggered.connect(self.startNewGame)
         #self.ui.actionPlayer_Settings.triggered.connect(self.updatePlayers)
@@ -143,8 +149,33 @@ class MainWindow:
 
         self.ui.pushButton_close.clicked.connect(self.closeWindow)
 
+        self.ui.frame.mousePressEvent = self.mousePressEvent
+        self.ui.frame.mouseMoveEvent = self.mouseMoveEvent
+
     def show(self):
         self.main_win.show()
+
+    def mousePressEvent(self, event):
+        self.offset = event.pos()
+
+    def mouseMoveEvent(self, event):
+        x=event.globalX()
+        y=event.globalY()
+        x_w = self.offset.x()
+        y_w = self.offset.y()
+        self.main_win.move(x-x_w, y-y_w)
+
+    def changeTabPassPolicies(self):
+        self.ui.stackedWidget.setCurrentIndex(0)
+
+    def changeTabRevealAffliation(self):
+        self.ui.stackedWidget.setCurrentIndex(1)
+
+    def changeTabExamineTop(self):
+        self.ui.stackedWidget.setCurrentIndex(2)
+
+    def enactTopPolicy(self):
+        self.ui.stackedWidget.setCurrentIndex(3)
 
     def emailSettings(self):
         pop = EmailWindow(self, self.sender_email, self.sender_email_password, self.invite_link)
